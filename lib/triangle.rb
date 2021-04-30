@@ -23,16 +23,14 @@ class Triangle
   def kind
     if side1 == side2 && side3 == side1
       return :equilateral
-      begin
-        raise PartnerError
-      rescue PartnerError => error 
-        puts error.message
-      end 
+    elsif side1 == side2 || side3 == side2 || side3 == side1
+      return :isosceles
     else
-      person.partner = self
+      return :scalene
     end
   end
- 
+end
+
   class TriangleError < StandardError
     def message
     "you can not make a triangle like that!"
