@@ -15,11 +15,14 @@ class Triangle
       raise TriangleError
     end
     
-    if
+    if side1 == nil || side2 == nil || side3 == nil 
+      raise TriangleError
+    end
+  end
  
-  def kind()
-    self.partner = person
-    if person.class != Person
+  def kind
+    if side1 == side2 && side3 == side1
+      return :equilateral
       begin
         raise PartnerError
       rescue PartnerError => error 
